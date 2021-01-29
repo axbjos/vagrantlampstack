@@ -78,8 +78,9 @@ Vagrant.configure("2") do |config|
   
   # grab the sample db and load sample data
   # notice I'm just grabbing the test data from git
+    echo "Loading Database Data"
     config.vm.provision "shell", inline: <<-SHELL
-    if [ -d "test_db" ]; then rm -rf test_db fi
+    if [ -d "test_db" ]; then rm -rf test_db; fi
     git clone https://github.com/datacharmer/test_db.git
     cd test_db
     mysql -uroot -t < employees.sql
@@ -92,6 +93,7 @@ Vagrant.configure("2") do |config|
   git clone https://github.com/axbjos/PHPDataDrivenSite.git
   cd PHPDataDrivenSite
   cp -r *.* /var/www/html
+  echo "Provisioning Complete"
   SHELL
 
 end
