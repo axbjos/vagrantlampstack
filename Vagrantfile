@@ -49,7 +49,7 @@ Vagrant.configure("2") do |config|
 
   #### EXAMPLE AUTOMATION FOR THE LAMP STACK ####
   #
-  # it ain't pretty but this word.  there are ways to make
+  # it ain't pretty but it works.  there are ways to make
   # it more elegant, but this provides good examples
 
   # here is one way to use the vagrant provisioner
