@@ -73,13 +73,14 @@ Vagrant.configure("2") do |config|
   
   # then run that script file so the "dbuser" is added
     config.vm.provision "shell", inline: <<-SHELL
+    echo "Loading app db user"
     mysql -uroot -t < users.sql
     SHELL
   
   # grab the sample db and load sample data
   # notice I'm just grabbing the test data from git
-    echo "Loading Database Data"
     config.vm.provision "shell", inline: <<-SHELL
+    echo "Loading Database Data"
     if [ -d "test_db" ]; then rm -rf test_db; fi
     git clone https://github.com/datacharmer/test_db.git
     cd test_db
